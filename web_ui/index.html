@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Realtime Judge Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Local webcam detection system</p>
+        <h1>보안스티커 위규 탐지 시스템</h1>
+      </div>
+      <nav class="app-nav" aria-label="primary navigation">
+        <a href="/" id="monitorLink">모니터링</a>
+        <a href="/logs" id="logsLink">로그 보기</a>
+      </nav>
+    </header>
+
+    <main class="dashboard-shell" id="monitorPage">
+      <section class="camera-grid" id="cameraGrid" aria-label="camera streams"></section>
+      <section class="overall-result-panel final-result-panel waiting" id="overallResultPanel" aria-label="overall final result">
+        <strong id="overallResultValue">대기 중</strong>
+      </section>
+    </main>
+
+    <main class="dashboard-shell logs-shell" id="logsPage" hidden>
+      <section class="date-tabs" id="dateTabs" aria-label="log dates"></section>
+
+      <section class="selected-log-panel">
+        <p class="logs-folder" id="selectedLogFolder">폴더: -</p>
+        <a class="download-button" id="csvDownload" href="#" download hidden>CSV 다운로드</a>
+      </section>
+
+      <section class="logs-table-section">
+        <h2>판정 로그</h2>
+        <p class="logs-caption" id="logCount">저장된 로그 0건을 표시합니다.</p>
+        <div class="log-table-wrap">
+          <table class="log-table">
+            <thead>
+              <tr>
+                <th>발생 시각</th>
+                <th>최종 판정</th>
+                <th>전면 신뢰도</th>
+                <th>후면 신뢰도</th>
+                <th>전면 검출</th>
+                <th>후면 검출</th>
+                <th>증거 이미지</th>
+              </tr>
+            </thead>
+            <tbody id="logRows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <template id="cameraTemplate">
+      <article class="camera-column">
+        <div class="camera-title-row">
+          <div>
+            <p class="eyebrow camera-eyebrow">Camera</p>
+            <h2 class="camera-title"></h2>
+          </div>
+          <span class="final-pill"></span>
+        </div>
+
+        <section class="video-panel full-panel">
+          <div class="panel-header">
+            <span>Full Webcam View</span>
+          </div>
+          <div class="video-frame full-frame">
+            <img class="full-stream" alt="Full webcam stream" />
+            <div class="stream-error" aria-hidden="true">
+              <span class="stream-error-title full-error-title"></span>
+              <span class="stream-error-detail full-error-detail"></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="status-panel" aria-label="camera status">
+          <div class="metric">
+            <span>Crop</span>
+            <strong class="crop-value">-</strong>
+          </div>
+          <div class="metric">
+            <span>Detections</span>
+            <strong class="detect-value">-</strong>
+          </div>
+        </section>
+
+      </article>
+    </template>
+
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
