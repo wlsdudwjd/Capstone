@@ -2,7 +2,7 @@
 
 웹캠 영상에서 휴대폰, 렌즈, 스티커를 검출해 정상/위규 여부를 실시간으로 확인하는 로컬 대시보드 프로젝트입니다. 저장소에는 실행 코드, 웹 UI, 학습된 모델 파일, 라벨 이미지가 함께 포함되어 있습니다.
 
-자세한 프로젝트 설명은 [INTRODUCTION.pdf](INTRODUCTION.pdf)를 참고하세요.
+자세한 프로젝트 설명은 [INSTRUCTION.pdf](INSTRUCTION.pdf)를 참고하세요.
 
 ## 포함된 주요 파일
 
@@ -14,7 +14,7 @@
 ├── original_best.pt          # 전체 이미지 정상/위규 분류 모델
 ├── important_best.pt         # 크롭 이미지 정상/위규 분류 모델
 ├── labels/                   # 학습/검증용 이미지 데이터
-└── INTRODUCTION.pdf          # 상세 설명서 PDF
+└── INSTRUCTION.pdf          # 상세 설명서 PDF
 ```
 
 ## 빠른 실행
